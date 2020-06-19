@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const url = `mongodb://localhost:27017/organizerDB`;
+const url = process.env.MONGODB_URI || `mongodb://localhost:27017/organizerDB`;
 let db = null;
 
 export async function connectDB() {
@@ -10,5 +10,3 @@ export async function connectDB() {
     console.info("Got DB,", db);
     return db;
 }
-
-// connectDB();
